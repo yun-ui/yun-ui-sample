@@ -2,7 +2,7 @@
     <div>
         <y-list-container>
             <y-list-item title="Bob" secondaryText="Phone: 13012345678" multi>
-                <img src="../assets/logo.png" slot="img">
+                <img src="../assets/avatar.png" slot="img">
             </y-list-item>
             <y-list-item title="分享我的名片" link @click.native="showActionPanel = true"></y-list-item>
             <y-list-item title="设置昵称" link></y-list-item>
@@ -30,17 +30,22 @@
                 actionSheetPanelItem: [
                     {
                         title: '微信',
-                        icon: require('../assets/placeholder-figure.png'),
+                        icon: require('../assets/wechat.png'),
                         callback: this.shareCard
                     },
                     {
-                        title: '同事圈',
-                        icon: require('../assets/placeholder-figure.png'),
+                        title: '朋友圈',
+                        icon: require('../assets/moment.png'),
                         callback: this.shareCard
                     },
                     {
-                        title: '收藏',
-                        icon: require('../assets/placeholder-figure.png'),
+                        title: 'QQ',
+                        icon: require('../assets/qq.png'),
+                        callback: this.shareCard
+                    },
+                    {
+                        title: 'QQ空间',
+                        icon: require('../assets/qzone.png'),
                         callback: this.shareCard
                     }
                 ]

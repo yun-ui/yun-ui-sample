@@ -4,7 +4,7 @@
         <contact v-show="tabId === 'contact'" v-model="contactNumber"></contact>
         <my v-if="tabId === 'my'"></my>
         <y-popup title="欢迎使用Demo" :textList="textListArray" :show="firstLoaded" @maskClicked="firstLoaded = false">
-            <img src="./assets/popup-cover.png" slot="cover"/>
+            <img src="./assets/logo.png" slot="cover"/>
             <y-button-group slot="buttonGroup" defaultActiveTabId="2">
                 <y-tab-item title="知道了" @click.native="firstLoaded = false" tabId="1"></y-tab-item>
                 <y-tab-item class="active" title="了解更多" @click.native="firstLoaded = false" tabId="2"></y-tab-item>
@@ -28,6 +28,7 @@
         Contact,
         My
     } from 'components'
+    import './utils/qingjs'
     export default {
         name: 'app',
         data () {
@@ -35,6 +36,7 @@
                 tabId: 'home',
                 contactNumber: '4',
                 firstLoaded: true,
+                isInCloudhub: /Qing/gi.test(window.navigator.userAgent),
                 textListArray: [
                     {
                         content: '本demo展示一些YunUI基础组件的用法'
@@ -49,6 +51,9 @@
             }
         },
         created () {
+            if (this.isInCloudhub && window.XuntongJSBridge) {
+                window.XuntongJSBridge.call('setWebViewTitle', { 'title': 'YunUI' })
+            }
         },
         methods: {
             change (a, b) {

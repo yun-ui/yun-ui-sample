@@ -14,9 +14,11 @@
                 <y-input label="Phone" placeholder="请输入电话号码" :defaultValue="phone" @change="setPhone"></y-input>
                 <y-switch label="设为重要联系人" @change="setStar"></y-switch>
             </y-form>
-            <y-button @click="save">保存</y-button>
+            <div style="margin-top: 8px;padding: 0 12px">
+                <y-button @click="save">保存</y-button>
+            </div>
         </div>
-        <div style="text-align: center" v-if="!addMode">
+        <div style="text-align: center;margin-top: 8px" v-if="!addMode">
             <y-button size="middle" @click="addMode = true">添加联系人</y-button>
         </div>
     </div>
@@ -37,22 +39,22 @@
                         name: 'Alice',
                         phone: '13012345678',
                         star: true,
-                        avatar: require('../assets/logo.png')
+                        avatar: require('../assets/avatar.png')
                     },
                     {
                         name: 'Bob',
                         phone: '13012345678',
-                        avatar: require('../assets/logo.png')
+                        avatar: require('../assets/avatar.png')
                     },
                     {
                         name: 'Cydia',
                         phone: '13012345678',
-                        avatar: require('../assets/logo.png')
+                        avatar: require('../assets/avatar.png')
                     },
                     {
                         name: 'Dickens',
                         phone: '13012345678',
-                        avatar: require('../assets/logo.png')
+                        avatar: require('../assets/avatar.png')
                     }
                 ]
             }
@@ -100,7 +102,7 @@
                     name: this.name,
                     phone: this.phone,
                     star: this.star,
-                    avatar: require('../assets/logo.png')
+                    avatar: require('../assets/avatar.png')
                 })
                 this.addMode = false
                 this.star = false
